@@ -67,7 +67,7 @@
 .sky-yc .tl{position:relative;margin:26px 0 30px;padding-top:8px}
 .sky-yc .tl .axis{position:absolute;left:0;right:0;top:64px;height:2px;background:var(--hair)}
 .sky-yc .tl .ticks{position:relative;height:96px}
-.sky-yc .tick{position:absolute;top:54px;transform:translateX(-50%);text-align:center}
+.sky-yc .tick{position:absolute;top:54px;transform:translateX(-50%);text-align:center;z-index:4}
 .sky-yc .tick .dot{width:9px;height:9px;border-radius:50%;background:var(--navy);margin:0 auto 8px}
 .sky-yc .tick .lbl{font-size:11px;font-weight:700;color:var(--mid);white-space:nowrap}
 .sky-yc .band{position:absolute;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;top:0}
@@ -131,6 +131,9 @@
 .sky-yc .disc .dl{display:block}
 .sky-yc .disc .dl + .dl{margin-top:8px}
 .sky-yc .flag{display:inline-block;background:#FBF0DC;color:#8A6D1F;font-weight:700;font-size:11px;padding:3px 8px;border-radius:4px}
+.sky-yc .dlwrap{text-align:center;margin:32px 0 4px}
+.sky-yc .dlbtn{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;background:linear-gradient(120deg,#191256 0%,#2E2D8E 55%,#6E6CC4 100%);color:#fff;font-weight:700;font-size:14.5px;text-decoration:none;padding:15px 30px;border-radius:6px;box-shadow:0 6px 18px -6px rgba(25,18,86,.5);transition:.18s}
+.sky-yc .dlbtn:hover{transform:translateY(-1px);box-shadow:0 10px 24px -8px rgba(25,18,86,.62)}
 .sky-yc footer{position:relative;overflow:hidden;color:#fff;padding:48px 0;text-align:center;background:radial-gradient(90% 150% at 14% 0%,rgba(110,108,196,.45) 0%,rgba(110,108,196,0) 55%),radial-gradient(85% 140% at 86% 100%,rgba(46,45,142,.55) 0%,rgba(46,45,142,0) 62%),radial-gradient(50% 95% at 96% 8%,rgba(194,162,74,.16) 0%,rgba(194,162,74,0) 60%),var(--navy-deep)}
 .sky-yc footer::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(118deg,rgba(255,255,255,.075) 0 1px,transparent 1px 12px),repeating-linear-gradient(118deg,rgba(194,162,74,.14) 0 1px,transparent 1px 56px);-webkit-mask-image:linear-gradient(108deg,transparent 16%,#000 96%);mask-image:linear-gradient(108deg,transparent 16%,#000 96%);opacity:1}
 .sky-yc footer::after{content:"";position:absolute;left:-60px;bottom:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(110,108,196,.4),transparent 68%);filter:blur(30px);pointer-events:none}
@@ -236,9 +239,9 @@
           <div class="tick" style="left:55%"><div class="dot"></div><div class="lbl">26.7.20</div></div>
           <div class="tick" style="left:84%"><div class="dot"></div><div class="lbl">26.10.31</div></div>
           <div class="tick" style="left:98%"><div class="dot"></div><div class="lbl">26.12.31</div></div>
-          <div class="band" style="left:30%;width:12%;background:#2E2D8E">① 회사 통보</div>
-          <div class="band b2" style="left:30%;width:25%;background:#6E6CC4">② 근로자 회신</div>
-          <div class="band b2" style="left:55%;width:29%;background:#C2A24A">③ 회사 지정통보</div>
+          <div class="band" style="left:30%;width:12%;background:#2E2D8E">①</div>
+          <div class="band b2" style="left:30%;width:25%;background:#6E6CC4">②</div>
+          <div class="band b2" style="left:55%;width:29%;background:#C2A24A">③</div>
         </div>
       </div>
       <div class="steps">
@@ -396,6 +399,18 @@
         <div class="a">촉진 기간에 육아휴직·병가·해외출장·장기휴가 등으로 자리를 비워 정상적 서면 촉진이 어려운 경우, 미사용분은 수당으로 지급합니다. 촉진 시행 이후라도 휴직·퇴사로 사용하지 못한 경우 회사는 미사용 연차에 대해 수당을 지급합니다.</div></details>
       <details><summary>HR 시스템으로 통지하면 되나요?</summary>
         <div class="a">전자결재체계를 완비해 전자문서로 기안·결재·시행이 이루어지고, 근로자 개인별로 명확하게 촉구·통보되는 경우에 한해 가능합니다.</div></details>
+      <details><summary>연차휴가 사용촉진을 일부 근로자에게만 실시해도 되나요?</summary>
+        <div class="a">가능합니다. 고용노동부는 직종·근로형태 등을 고려하여 특정 집단의 근로자에 대해서는 휴가사용촉진조치의 적용을 제외할 수 있다는 입장이므로(근로기준과-407, 2004. 1. 26.), 업무상 필요가 있는 경우 부서별·직종별로 달리 연차휴가 사용촉진을 실시하실 수 있습니다.</div></details>
+      <details><summary>1차 촉구 시 일부 연차에 대해서만 사용시기를 통보받으면 어떻게 되나요?</summary>
+        <div class="a">고용노동부는 근로자가 1차 촉구를 받은 후 미사용 휴가 중 일부에 대해서만 사용시기를 통보한 경우, 사용자는 연차사용기한이 종료되는 날의 2개월 전까지 (나머지 휴가의) 사용시기를 지정하여 근로자에게 서면으로 통보하여야 한다는 입장입니다(근로조건지도과-44, 2009. 1. 5.). 따라서 2차 촉진 시에는 근로자가 사용시기를 통보하지 않은 휴가와 통보 후에도 실제 사용하지 않은 휴가 일체에 대하여 사용일을 지정하여 통보하시면 됩니다.</div></details>
+      <details><summary>사용촉진 과정에서 통보받거나 지정하여 통보한 연차 사용일을 변경할 수 있나요?</summary>
+        <div class="a">원칙적으로 사용자와 근로자의 합의가 있으면 변경할 수 있습니다. 다만 당사자 간 합의로 연차 사용일을 변경하더라도, 적법·유효한 연차휴가 사용촉진으로 인정받기 위해서는 변경된 연차일에 업무지시를 하지 않고 노무수령 거부 의사를 명확하게 통지하는 등의 조치를 취하여야 합니다.</div></details>
+      <details><summary>연차 사용일을 지정하였음에도 근로자가 출근하는 경우 어떻게 해야 하나요?</summary>
+        <div class="a">대법원과 고용노동부의 입장에 따라, 사용자는 적법한 노무수령 거부 의사를 명확하게 표시하고 일체의 업무지시를 하지 않아야 합니다. 구체적으로는 ① 해당 연차휴가일에 근로자의 책상 위에 '노무수령 거부의사 통지서'를 올려두거나, ② 근로자가 컴퓨터를 켜면 '노무수령 거부의사 통지' 화면이 표시되도록 하는 등, 근로자가 사용자의 노무수령 거부 의사를 인지할 수 있는 수준의 시스템을 갖추는 방식을 취하여야 합니다. 노무수령 거부 통지서 양식은 아래 [연차휴가 사용촉진 서류 다운로드] 버튼을 클릭하여 확인하실 수 있습니다.</div></details>
+    </div>
+
+    <div class="dlwrap">
+      <a class="dlbtn" href="https://drive.google.com/drive/folders/1fLxlX7IVGLYHqJAdvdCcPlN8nFsEBMW6?usp=sharing" target="_blank" rel="noopener"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 11l5 5 5-5"></path><path d="M4 20h16"></path></svg>연차휴가 사용촉진 서류 다운로드</a>
     </div>
 
     <div class="disc">
