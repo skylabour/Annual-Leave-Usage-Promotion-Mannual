@@ -91,7 +91,17 @@
 .sky-yc .ab .pill{background:#fff;border:1px solid var(--hair);border-radius:5px;padding:16px 18px}
 .sky-yc .ab .tag{display:block;font-weight:800;color:var(--gold);font-size:13px;letter-spacing:.5px;margin-bottom:7px}
 .sky-yc .ab .pdesc{display:block;font-size:13.5px;color:var(--ink);line-height:1.55}
-.sky-yc .ab .parrow{display:block;font-size:13.5px;color:var(--navy);font-weight:700;line-height:1.55;margin-top:4px}
+.sky-yc .ab .parrow{display:block;font-size:13.5px;color:var(--navy);font-weight:700;line-height:1.55;margin-top:8px}
+.sky-yc .tbadge{display:inline-block;background:linear-gradient(120deg,#191256 0%,#2E2D8E 58%,#6E6CC4 100%);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:.2px;box-shadow:0 1px 3px rgba(25,18,86,.28)}
+.sky-yc .cardnote{font-size:12px;color:var(--mid);margin-top:10px;line-height:1.5}
+.sky-yc .subhead{font-size:17px;font-weight:800;color:var(--navy);margin:32px 0 3px}
+.sky-yc .subdesc{font-size:13.5px;color:var(--mid);margin-bottom:2px}
+.sky-yc .confirm{background:var(--lbg);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:16px 18px;margin-top:18px}
+.sky-yc .confirm-label{display:inline-block;background:var(--gold);color:#fff;font-weight:800;font-size:12px;letter-spacing:.5px;padding:4px 11px;border-radius:5px;margin-bottom:9px}
+.sky-yc .confirm p{font-size:13.5px;color:var(--ink);line-height:1.6}
+.sky-yc .confirm b{color:var(--navy)}
+.sky-yc .mlx{margin-top:6px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.sky-yc .mlx svg{display:block;width:100%;height:auto;min-width:700px}
 .sky-yc .key{background:#FBE7E4;border-radius:5px;padding:22px 24px;margin-bottom:20px}
 .sky-yc .key-label{display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:12px;letter-spacing:1.5px;padding:5px 13px;border-radius:5px;margin-bottom:12px}
 .sky-yc .key-body{font-size:15px;color:var(--ink);line-height:1.7}
@@ -211,8 +221,37 @@
   </div>
 </div>
 
-<!-- 촉진 시기 (토글) -->
+<!-- 촉진 대상 -->
 <section>
+  <div class="wrap">
+    <div class="eyebrow">Scope · 촉진 대상</div>
+    <h2 class="sec">연차휴가 사용촉진 대상</h2>
+    <p class="sub">사용촉진 대상 연차, 대상자, 적용 제외 범위와 회계연도 중 입사자의 촉진 방식에 대해 확인하세요.</p>
+    <div class="grid2">
+      <div class="card"><h4 style="color:var(--navy)">적용 대상</h4>
+        <ul><li>근로기준법에 따라 발생한 연차유급휴가</li></ul>
+        <p class="cardnote">※ 회계연도 중간에 입사한 근로자의 연차휴가 사용촉진 방법은 아래를 참고하세요.</p></div>
+      <div class="card"><h4 style="color:var(--red)">제외 대상</h4>
+        <ul><li>전년도 발생 후 근로자 동의 하에 이월된 연차휴가</li>
+            <li>아직 발생하지 않은 연차휴가를 선부여한 경우(마이너스 연차)</li></ul></div>
+    </div>
+
+    <div class="subhead">회계연도 중 입사자의 사용촉진 방법</div>
+    <p class="subdesc">회계연도 중 입사자의 경우 각기 다른 두 종류의 연차휴가를 각각 촉진하여야 합니다.</p>
+    <div class="ab">
+      <div class="pill"><span class="tag">연차 A (월차)</span><span class="pdesc">입사 후 최초 1년 도래 시까지 1개월 개근 시 1일씩 발생하는 연차(최대 11개)</span><span class="parrow">→ <span class="tbadge">1년 미만 근속자</span> 방식으로 촉진</span></div>
+      <div class="pill"><span class="tag">연차 B (비례연차)</span><span class="pdesc">입사 이후 최초로 도래한 회계연도 시작일(1.1.)에 전년도 계속근로기간을 비례하여 부여한 연차(예: 7.5개, 5개 등)</span><span class="parrow">→ <span class="tbadge">1년 이상 근속자</span> 방식으로 촉진</span></div>
+    </div>
+
+    <div class="confirm">
+      <span class="confirm-label">꼭 확인하세요!</span>
+      <p>예시) 2025. 11. 1 입사자는 촉진 개시일(2026. 7. 1) 기준 <b>연차 A 8개</b>와 2026. 1. 1 발생 <b>연차 B 2.5개</b>가 각각 다른 방법으로 촉진됩니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 촉진 시기 (토글) -->
+<section class="alt">
   <div class="wrap">
     <div class="eyebrow">Step · 사용촉진 시기</div>
     <h2 class="sec">연차 사용촉진 시기</h2>
@@ -295,30 +334,10 @@
         <div class="step"><div class="badge badge-gold">6</div><h4>회사 → 근로자</h4><div class="when when-gold">~ 10.21</div><p>미통보 시 최초 1년 끝나기 10일 전까지 서면으로 지정 통보합니다.</p></div>
       </div>
       <div class="disc" style="margin-top:18px">실무상 1년 미만 근속자는 촉진을 시행하지 않고, 동의를 받아 사용기한을 연장(통상 입사 다음 해 말일)하는 추세입니다. 이월분은 촉진 대상이 아니며 미사용 시 금전으로 보상합니다.</div>
+      <div class="subhead" style="margin-top:32px">월차(연차 A) 발생·촉진 흐름 한눈에 보기</div>
+      <p class="subdesc" style="margin-bottom:10px">입사월(N)을 기준으로 매월 1일씩 발생하는 월차는, 소멸 3개월 전(1차)·1개월 전(2차) 두 차례 촉진합니다. (예시는 만 1년 시점 소멸 기준)</p>
+      <div class="mlx" role="img" aria-label="입사 이후 매월 발생하는 월차의 사용촉진 타임라인. 입사월 기준 N+9개월에 1차 촉진, N+11개월에 2차 촉진, N+12개월(만 1년)에 월차 소멸."><svg viewBox="0 0 1360 300" xmlns="http://www.w3.org/2000/svg" font-family="'맑은 고딕','Malgun Gothic',sans-serif"><defs><pattern id="skyhatch" width="14" height="14" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#EDEDF6"/><rect width="7" height="14" fill="#E3E3F0"/></pattern></defs><rect x="40" y="58" width="1290" height="46" rx="9" fill="url(#skyhatch)"/><rect x="40" y="58" width="1290" height="46" rx="9" fill="none" stroke="#D8D8E6" stroke-width="1"/><rect x="40" y="58" width="92" height="46" rx="9" fill="#191256"/><rect x="123" y="58" width="9" height="46" fill="#191256"/><text x="86" y="87" text-anchor="middle" fill="#fff" font-size="19" font-weight="800">N(월)</text><text x="172" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+1</text><text x="273" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+2</text><text x="375" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+3</text><text x="477" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+4</text><text x="578" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+5</text><text x="680" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+6</text><text x="782" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+7</text><text x="883" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+8</text><text x="985" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+9</text><text x="1087" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+10</text><text x="1188" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+11</text><text x="1290" y="88" text-anchor="middle" fill="#2E2D8E" font-size="19" font-weight="800">N+12</text><rect x="933" y="112" width="104" height="192" rx="6" fill="#2E2D8E" opacity="0.06"/><rect x="1136" y="112" width="104" height="192" rx="6" fill="#2E2D8E" opacity="0.06"/><line x1="172" y1="112" x2="172" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="273" y1="112" x2="273" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="375" y1="112" x2="375" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="477" y1="112" x2="477" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="578" y1="112" x2="578" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="680" y1="112" x2="680" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="782" y1="112" x2="782" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="883" y1="112" x2="883" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="985" y1="112" x2="985" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="1087" y1="112" x2="1087" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="1188" y1="112" x2="1188" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="1290" y1="112" x2="1290" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><line x1="70" y1="112" x2="70" y2="300" stroke="#D8D8E6" stroke-width="1.4" stroke-dasharray="3 5"/><rect x="935" y="150" width="100" height="40" rx="6" fill="#2E2D8E"/><text x="985" y="175" text-anchor="middle" fill="#fff" font-size="17" font-weight="800">1차 촉진</text><rect x="1138" y="150" width="100" height="40" rx="6" fill="#2E2D8E"/><text x="1188" y="175" text-anchor="middle" fill="#fff" font-size="17" font-weight="800">2차 촉진</text><rect x="915" y="8" width="140" height="34" rx="7" fill="#C2A24A"/><path d="M 977 42 L 993 42 L 985 53 Z" fill="#C2A24A"/><text x="985" y="31" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">소멸 3개월 전</text><rect x="1118" y="8" width="140" height="34" rx="7" fill="#C2A24A"/><path d="M 1180 42 L 1196 42 L 1188 53 Z" fill="#C2A24A"/><text x="1188" y="31" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">소멸 1개월 전</text><text x="70" y="255" text-anchor="middle" fill="#191256" font-size="17" font-weight="800">입사</text><text x="172" y="243" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">1번째</text><text x="172" y="265" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">월차 생성</text><text x="273" y="243" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">2번째</text><text x="273" y="265" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">월차 생성</text><text x="375" y="243" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">3번째</text><text x="375" y="265" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">월차 생성</text><text x="477" y="243" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">4번째</text><text x="477" y="265" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">월차 생성</text><text x="578" y="243" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">5번째</text><text x="578" y="265" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">월차 생성</text><text x="680" y="243" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">6번째</text><text x="680" y="265" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">월차 생성</text><text x="782" y="243" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">7번째</text><text x="782" y="265" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">월차 생성</text><text x="883" y="243" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">8번째</text><text x="883" y="265" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">월차 생성</text><text x="985" y="243" text-anchor="middle" fill="#2E2D8E" font-size="15.5" font-weight="800">9번째</text><text x="985" y="265" text-anchor="middle" fill="#2E2D8E" font-size="15.5" font-weight="800">월차 생성</text><text x="1087" y="243" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">10번째</text><text x="1087" y="265" text-anchor="middle" fill="#6B6B7B" font-size="15.5" font-weight="600">월차 생성</text><text x="1188" y="243" text-anchor="middle" fill="#2E2D8E" font-size="15.5" font-weight="800">마지막</text><text x="1188" y="265" text-anchor="middle" fill="#2E2D8E" font-size="15.5" font-weight="800">월차 생성</text><text x="1290" y="243" text-anchor="middle" fill="#B23B33" font-size="16" font-weight="800">만 1년</text><text x="1290" y="265" text-anchor="middle" fill="#B23B33" font-size="16" font-weight="800">월차 소멸</text></svg></div>
     </div>
-  </div>
-</section>
-
-<!-- 촉진 대상 -->
-<section class="alt">
-  <div class="wrap">
-    <div class="eyebrow">Scope · 촉진 대상</div>
-    <h2 class="sec">연차휴가 촉진 대상</h2>
-    <p class="sub">적용·제외 범위와, 회계연도 중 입사자의 A·B 연차 구분을 확인하세요.</p>
-    <div class="grid2">
-      <div class="card"><h4 style="color:var(--navy)">적용 대상</h4>
-        <ul><li>회계연도 1.1 기준 2025. 1. 1 또는 그 이전 입사자에 적용</li>
-            <li>이전 회계연도 중 입사자는 A·B 연차가 모두 발생 → 각각의 방법으로 촉진</li></ul></div>
-      <div class="card"><h4 style="color:var(--red)">제외 대상</h4>
-        <ul><li>전년도 발생 후 이월된 연차휴가</li>
-            <li>발생 전 선부여한 연차(마이너스 연차)</li>
-            <li>이월분 미사용 시 금전 보상(촉진 불가)</li></ul></div>
-    </div>
-    <div class="ab">
-      <div class="pill"><span class="tag">연차 A (월차)</span><span class="pdesc">입사 후 최초 1년까지 1개월 개근 시 1일씩 발생</span><span class="parrow">→ 1년 미만 근속자 방법으로 촉진</span></div>
-      <div class="pill"><span class="tag">연차 B (비례연차)</span><span class="pdesc">계속근로기간에 비례하여 부여</span><span class="parrow">→ 1년 이상 근속자 방법으로 촉진</span></div>
-    </div>
-    <p class="sub" style="margin-top:14px;font-style:italic">예시) 2025. 11. 1 입사자는 촉진 개시일(2026. 7. 1) 기준 [연차 A] 8개와 2026. 1. 1 발생 [연차 B] 2.5개가 각각 다른 방법으로 촉진됩니다.</p>
   </div>
 </section>
 
