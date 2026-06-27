@@ -144,6 +144,16 @@
 .sky-yc .dlwrap{text-align:center;margin:32px 0 4px}
 .sky-yc .dlbtn{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;background:linear-gradient(120deg,#191256 0%,#2E2D8E 55%,#6E6CC4 100%);color:#fff;font-weight:700;font-size:14.5px;text-decoration:none;padding:15px 30px;border-radius:6px;box-shadow:0 6px 18px -6px rgba(25,18,86,.5);transition:.18s}
 .sky-yc .dlbtn:hover{transform:translateY(-1px);box-shadow:0 10px 24px -8px rgba(25,18,86,.62)}
+.sky-yc .snav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:13px;align-items:flex-end;opacity:0;transition:opacity .35s}
+.sky-yc .snav.show{opacity:1}
+.sky-yc .snav a{display:flex;align-items:center;gap:11px;justify-content:flex-end;text-decoration:none;cursor:pointer}
+.sky-yc .snav .sl{font-size:11.5px;font-weight:700;color:var(--mid);background:rgba(255,255,255,.96);border:1px solid var(--hair);padding:4px 11px;border-radius:5px;white-space:nowrap;box-shadow:0 3px 12px -4px rgba(25,18,86,.18);opacity:0;transform:translateX(8px);transition:.22s;pointer-events:none}
+.sky-yc .snav a:hover .sl{opacity:1;transform:none}
+.sky-yc .snav .sd{width:9px;height:9px;border-radius:50%;background:#C7C7DA;flex:none;transition:.22s}
+.sky-yc .snav a:hover .sd{background:var(--violet)}
+.sky-yc .snav a.on .sd{background:var(--navy);box-shadow:0 0 0 4px rgba(46,45,142,.16)}
+.sky-yc .snav a.on .sl{opacity:1;transform:none;color:var(--navy);border-color:rgba(46,45,142,.32)}
+@media(max-width:1100px){.sky-yc .snav{display:none}}
 .sky-yc footer{position:relative;overflow:hidden;color:#fff;padding:48px 0;text-align:center;background:radial-gradient(90% 150% at 14% 0%,rgba(110,108,196,.45) 0%,rgba(110,108,196,0) 55%),radial-gradient(85% 140% at 86% 100%,rgba(46,45,142,.55) 0%,rgba(46,45,142,0) 62%),radial-gradient(50% 95% at 96% 8%,rgba(194,162,74,.16) 0%,rgba(194,162,74,0) 60%),var(--navy-deep)}
 .sky-yc footer::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(118deg,rgba(255,255,255,.075) 0 1px,transparent 1px 12px),repeating-linear-gradient(118deg,rgba(194,162,74,.14) 0 1px,transparent 1px 56px);-webkit-mask-image:linear-gradient(108deg,transparent 16%,#000 96%);mask-image:linear-gradient(108deg,transparent 16%,#000 96%);opacity:1}
 .sky-yc footer::after{content:"";position:absolute;left:-60px;bottom:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(110,108,196,.4),transparent 68%);filter:blur(30px);pointer-events:none}
@@ -399,6 +409,9 @@
       </div>
     </div>
     <p class="sub" style="margin-top:14px;font-style:italic">본 서식은 표준 예시이며, 사업장 사정에 맞게 회사명·문구를 조정해 사용하세요.</p>
+    <div class="dlwrap">
+      <a class="dlbtn" href="https://drive.google.com/drive/folders/1fLxlX7IVGLYHqJAdvdCcPlN8nFsEBMW6?usp=sharing" target="_blank" rel="noopener"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 11l5 5 5-5"></path><path d="M4 20h16"></path></svg>연차휴가 사용촉진 서류 다운로드</a>
+    </div>
   </div>
 </section>
 
@@ -446,5 +459,44 @@
   </div>
 </footer>
 </div>
+<script>
+(function(){
+  var root=document.querySelector('.sky-yc');
+  if(!root)return;
+  var secs=Array.prototype.slice.call(root.querySelectorAll('section'));
+  var hero=root.querySelector('.hero');
+  var items=[];
+  if(hero){hero.id='sec-hero';items.push({el:hero,label:'개요'});}
+  var labels=['촉진 대상','사용촉진 시기','휴가일 대응','첨부 서식','자주 묻는 질문'];
+  secs.forEach(function(s,i){s.id='sec-'+i;items.push({el:s,label:labels[i]||('섹션 '+(i+1))});});
+  var nav=document.createElement('nav');
+  nav.className='snav';
+  nav.setAttribute('aria-label','섹션 바로가기');
+  items.forEach(function(it){
+    var a=document.createElement('a');
+    a.href='#'+it.el.id;
+    a.dataset.target=it.el.id;
+    a.innerHTML='<span class="sl">'+it.label+'</span><span class="sd"></span>';
+    a.addEventListener('click',function(e){e.preventDefault();var y=it.el.getBoundingClientRect().top+window.pageYOffset-20;window.scrollTo({top:y,behavior:'smooth'});});
+    nav.appendChild(a);
+  });
+  root.appendChild(nav);
+  var links={};
+  Array.prototype.slice.call(nav.querySelectorAll('a')).forEach(function(a){links[a.dataset.target]=a;});
+  function reveal(){var sh=window.pageYOffset>120;nav.classList.toggle('show',sh);}
+  function spy(){
+    var line=window.pageYOffset+window.innerHeight*0.4;
+    var cur=items[0];
+    for(var i=0;i<items.length;i++){
+      var top=items[i].el.getBoundingClientRect().top+window.pageYOffset;
+      if(top<=line)cur=items[i];
+    }
+    Object.keys(links).forEach(function(k){links[k].classList.toggle('on',k===cur.el.id);});
+  }
+  function onScroll(){reveal();spy();}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',spy,{passive:true});
+})();
+</script>
 </body>
 </html>
